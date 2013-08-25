@@ -84,7 +84,7 @@ CFBinaryHeapCallBacks callbacks = { 0, nretain, nrelease, ncopyDescription, ncom
     CFBinaryHeapAddValue(_heap, (__bridge_retained void *)node);
 }
 
-- (id)popFirstObject {
+- (id)dequeue {
     CFTypeRef cfNode = NULL;
     Boolean success = CFBinaryHeapGetMinimumIfPresent(_heap, (const void **)&cfNode);
     if (success) {
@@ -104,7 +104,6 @@ CFBinaryHeapCallBacks callbacks = { 0, nretain, nrelease, ncopyDescription, ncom
 }
 
 - (id)firstObject {
-    //LPNode *node;
     CFTypeRef cfNode = NULL;
     Boolean res = CFBinaryHeapGetMinimumIfPresent(_heap, (const void **)&cfNode);
     if (res) {
@@ -116,7 +115,6 @@ CFBinaryHeapCallBacks callbacks = { 0, nretain, nrelease, ncopyDescription, ncom
 }
 
 - (NSArray *)allObjects {
-    
     CFIndex size = CFBinaryHeapGetCount(_heap);
     CFTypeRef *cfValues = malloc(size * sizeof(CFTypeRef));
     CFBinaryHeapGetValues(_heap, (const void **)cfValues);

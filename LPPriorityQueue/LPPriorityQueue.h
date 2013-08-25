@@ -15,7 +15,7 @@
 
 - (NSUInteger)count;
 - (void)addObject:(id)obj;
-- (id)popFirstObject;
+- (id)dequeue;
 - (void)removeFirstObject;
 - (id)firstObject;
 - (NSArray *)allObjects;
