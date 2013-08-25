@@ -34,12 +34,12 @@ int main(int argc, const char * argv[])
 				NSNumber *number = @([[components lastObject] integerValue]);
 				[stack push:number];
 			} else if ([input isEqualToString:@"pop"]) {
-				printf("%ld\n", (long)[[stack pop] integerValue]);
+				printf("%ld\n", [[stack pop] longValue]);
 			} else if ([input isEqualToString:@"peek"]) {
-				printf("%ld\n", [[stack peek] integerValue]);
+				printf("%ld\n", [[stack peek] longValue]);
 			} else if ([input isEqualToString:@"print"]) {
 				for (NSNumber *number in [stack allObjects]) {
-					printf("%ld\n", [number integerValue]);
+					printf("%ld\n", [number longValue]);
 				}
 			} else {
 				printf("Invalid input\n");

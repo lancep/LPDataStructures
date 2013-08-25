@@ -36,12 +36,12 @@ int main(int argc, const char * argv[])
 				NSNumber *number = @([[components lastObject] integerValue]);
 				[queue addObject:number];
 			} else if ([input isEqualToString:@"dequeue"]) {
-				printf("%ld\n", (long)[[queue dequeue] integerValue]);
+				printf("%ld\n", [[queue dequeue] longValue]);
 			} else if ([input isEqualToString:@"first"]) {
-				printf("%ld\n", [[queue firstObject] integerValue]);
+				printf("%ld\n", [[queue firstObject] longValue]);
 			} else if ([input isEqualToString:@"print"]) {
 				for (NSNumber *number in [queue allObjects]) {
-					printf("%ld\n", [number integerValue]);
+					printf("%ld\n", [number longValue]);
 				}
 			} else {
 				printf("Invalid input\n");
